@@ -4,9 +4,10 @@ import ErrorComponent from "./ErrorComponent"
 import LogoutComponent from "./LogoutComponent"
 import HeaderComponent from "./HeaderComponent"
 import WelcomeComponent from "./WelcomeComponent"
-import TodoComponent from './TodoListComponent'
+import TodoListComponent from './TodoListComponent'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import AuthContextProvider, { useAuthContext } from './Security/AuthContext'
+import TodoComponent from './TodoComponent'
 
 export default function TodoApp() {
 
@@ -30,6 +31,11 @@ export default function TodoApp() {
                             </AuthenticatedRoute>}
                         />
                         <Route path="/todo" element={
+                            <AuthenticatedRoute>
+                                <TodoListComponent />
+                            </AuthenticatedRoute>}
+                        />
+                        <Route path="/todo/:id" element={
                             <AuthenticatedRoute>
                                 <TodoComponent />
                             </AuthenticatedRoute>}
