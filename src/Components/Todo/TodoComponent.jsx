@@ -22,9 +22,7 @@ export default function TodoComponent() {
         [id])  // we want to call retrieveTodo whenever id updated
 
     function retrieveTodo() {
-
-        if (id !== -1) {  //if id isn't -1 then proceed with update logic, i.e fetch details of specific todo using id
-
+        if (id != -1) {  //if id isn't -1 then proceed with update logic, i.e fetch details of specific todo using id
             retrieveSpecificTodoApi(username, id)  // calling the retriveApiMethod
                 .then((response) => {
                     setDescription(response.data.description)
@@ -35,7 +33,7 @@ export default function TodoComponent() {
         }
     }
     function submit(values) {
-        console.log(values)
+
         const todo = {
             id: id,
             username: username,
@@ -44,7 +42,7 @@ export default function TodoComponent() {
             done: false
         }
 
-        if (id === -1) {  // if id is -1 then proceed with createApi logic, else call updateApi method
+        if (id == -1) {  // if id is -1 then proceed with createApi logic, else call updateApi method   
             createTodoApi(username, todo)
                 .then(response => navigate('/todo'))
                 .catch(err => console.log(err))
@@ -56,9 +54,6 @@ export default function TodoComponent() {
         }
     }
 
-
-
-
     function validation(values) {
 
         let errors = {
@@ -69,7 +64,7 @@ export default function TodoComponent() {
             errors.description = "Enter atleast 5 characters in description"
         }
 
-        if(values.targetDate === ''){
+        if (values.targetDate == '') {
             errors.targetDate = "Enter a target date"
         }
 

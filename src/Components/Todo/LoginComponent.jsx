@@ -20,8 +20,8 @@ function Login() {
         setPassword(event.target.value)
     }
 
-    function handleSubmit() {
-        if (authContext.Login(username, password )) {
+   async function handleSubmit() {
+        if (await authContext.Login(username, password )) {
             navigate(`/welcome/${username}`)
         } else {
             setShowErrorMessage(true)
