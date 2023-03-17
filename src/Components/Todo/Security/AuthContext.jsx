@@ -55,6 +55,7 @@ export default function AuthContextProvider({ children }) {
             const JwtToken = 'Bearer ' + response.data.token
 
             if (response.status === 200) {
+                
                 setIsAuthenticated(true)
                 setUsername(username)
                 setToken(JwtToken)
